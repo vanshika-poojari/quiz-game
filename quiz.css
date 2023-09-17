@@ -1,0 +1,39 @@
+#firstdiv{ 
+    position: relative;
+    border: 1px solid grey;
+    width: 550px;  
+    height: 200px;
+    left: 28%;
+    top: 200px;
+    border-radius: 1em;
+    padding: 30px;
+    box-shadow: 5px 5px grey;
+}
+
+/* #firstdiv:hover{
+    cursor: pointer;
+} */
+
+/* .content{
+    font-weight: bolder;
+    font-size: 1.5em;
+}
+.innerdiv{
+    position: relative; 
+    left: 20px
+}
+.paratags{
+    color: rgb(38, 38, 38);
+}
+*/
+/* btn{ 
+    background-color: rgb(98, 190, 158);
+    padding: 10px;
+    border-radius: 0.6em;
+    border: none;
+    margin-left: 430px;
+    margin-top: 10%;
+}
+button:hover{
+    cursor: pointer;
+} */ 
