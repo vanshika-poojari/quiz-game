@@ -1,39 +1,45 @@
-#firstdiv{ 
-    position: relative;
-    border: 1px solid grey;
-    width: 550px;  
-    height: 200px;
-    left: 28%;
-    top: 200px;
-    border-radius: 1em;
-    padding: 30px;
-    box-shadow: 5px 5px grey;
+#container{
+    position: absolute;
+    top: 50%;
+    left: 29%;
+    transform: translate(0, -50%);
+    background-color: rgb(173, 223, 211);
+    width: 30%;
+    border: 1px solid black;
+    border-radius: 1.2em;
+    padding: 100px    
 }
-
-/* #firstdiv:hover{
+#buttons{
+   position: relative;
+   width: 20%;
+   background-color: rgb(44, 164, 136);
+   border: none;
+   border-radius: 0.5em;
+   padding: 10px;
+   top: 60px;
+   left: -50px;
+}
+#buttons:hover{ 
     cursor: pointer;
-} */
-
-/* .content{
-    font-weight: bolder;
+}
+#score{
+    position:relative;
+    left: 24%;
+    top: -60px;
+    font-style: bold;
     font-size: 1.5em;
 }
-.innerdiv{
-    position: relative; 
-    left: 20px
-}
-.paratags{
-    color: rgb(38, 38, 38);
-}
-*/
-/* btn{ 
-    background-color: rgb(98, 190, 158);
-    padding: 10px;
-    border-radius: 0.6em;
-    border: none;
-    margin-left: 430px;
-    margin-top: 10%;
-}
-button:hover{
+.choice{ 
+    background-color: white;
+    margin: 10px auto;
+    padding: 8px;
+    border-radius : 5px;
     cursor: pointer;
-} */ 
+}
+.choice:hover{
+    background-color: rgb(221, 218, 218);
+}
+.choice.selected{
+    background-color: lightblue;
+}
+
