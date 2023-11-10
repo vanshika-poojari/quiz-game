@@ -1,10 +1,12 @@
 const questionbox = document.getElementById("questionBox")
 const choicesbox = document.getElementById("choices")
-const userScore = document.getElementById("user")
+const userScore = document.getElementById("userscore")
 const startQuiz = document.getElementById("buttons")
-
+const text  = document.querySelector("text")
+const container = document.getElementById("container")
+const firstbutton  = document.getElementById("firstbutton")
+const alert = document.getElementById("alert")
 let score = 0; 
-
 
 // Making an array storing questions choices and answers
 const quizbox = [
@@ -26,14 +28,12 @@ const quizbox = [
     {
         question: "Q4. What is the purpose of the this keyword in JavaScript ",
         choices:["it refers to the current function", "it refers to the current object", "it refers to any object", "it refers to a memory location"],
-        answer: "it refers to the current object"
+        answer: "it refers to the current object" 
     }
 ];
 
-
-
 let currentQuestionIndex = 0; 
-//function to show questions 
+
 function showQuestions(){ 
     // alert ("clicked");
     const firstQuestion = quizbox[currentQuestionIndex];
@@ -56,31 +56,23 @@ else{
 }
 
 })
-
-
    }
 
-
 }
-// function checkAnswer(){
-//     const selectedChoice = document.querySelector('.choice.selected');
-//     if (selectedChoice.textContent === quizbox[currentQuestionIndex].answer){
-//         alert("right answer")        
-//         score++;
-//     }
-//     else{
-//         alert("wrong answer")
-//     }
+
+
+//checking then marking correct or incorrect 
+
 function checkAnswer() {
 
     const selectedChoice = document.querySelector(".choice.selected");
     if (selectedChoice.textContent === quizbox[currentQuestionIndex].answer) {
       selectedChoice.style.backgroundColor = "green";
       score++;
-      preventdefault();
+    
     } else {
       selectedChoice.style.backgroundColor = "red";
-      preventdefault();
+     
     }
     currentQuestionIndex++;
     if(currentQuestionIndex<quizbox.length){
@@ -91,26 +83,65 @@ function checkAnswer() {
   
 }
 
-//function to show score
+// function to show score 
 
 const checkScore = () => {
     questionbox.textContent = "";
     choicesbox.textContent= "";
-    userScore.textContent = ` You scored ${score} out of ${quizbox.length}`
+    userScore.textContent = ` Hooray! You scored ${score} out of ${quizbox.length}`
     startQuiz.textContent = "Play Again!";
+    alert.style.display = "none";
     startQuiz.addEventListener('click', function(){
-        currentQuestionIndex = 0; 
+        userScore.textContent = "";
+        questionbox.style.width = "100px"
+        startQuiz.textContent = "Next"
+        currentQuestionIndex = 0;
         showQuestions();
+    
     })
 }
 
+//showing alert for correct or incorrect answers 
 
-showQuestions(); 
-startQuiz.addEventListener("click", function(){
-    startQuiz.innerHTML = "Next"
-    checkAnswer();
-    
+const displayAlert = (msg) =>{
+    alert.style.display = "block"; 
+    alert.textContent = msg; 
+}
+
+//buttons and their functions
+
+startQuiz.textContent = ""; 
+startQuiz.style.display = "none";
+firstbutton.addEventListener('click', function(){ 
+    startQuiz.textContent = "Next"
+    startQuiz.style.display = "block"
+    showQuestions();
+    firstbutton.textContent = ""; 
+    firstbutton.style.display = "none";
+
+    startQuiz.addEventListener('click', function(){
+        const selectedChoice = document.querySelector(".choice.selected");
+        if (selectedChoice.textContent === quizbox[currentQuestionIndex].answer) {
+            // alert("correct");
+            displayAlert("correct")
+          score++;
+        
+        } else {
+            displayAlert("incorrect")
+        //   alert("incorrect")
+          
+        }
+        currentQuestionIndex++;
+        if(currentQuestionIndex<quizbox.length){
+            showQuestions();
+        } else{
+            checkScore();
+        }
     })
+var div = document.createElement("div");
+document.getElementById("main").appendChild(div);
+
+})
 
 
 
@@ -123,7 +154,3 @@ startQuiz.addEventListener("click", function(){
 
 
 
-// function beginQuiz(){
-//     questionAsked.innerHTML = questions[currentQuestion].question;
-    
-// }
